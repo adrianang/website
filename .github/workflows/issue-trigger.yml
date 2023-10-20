@@ -78,7 +78,6 @@ jobs:
         uses: alex-page/github-project-automation-plus@v0.8.3
         id: add-issue-project-board
         with:
-          script: |
-            project: Project Board
-            column: New Issue Approval
-            repo-token: ${{ secrets.HFLA_COPIED_PB_FOR_TESTING_TOKEN }}
+          project: Project Board
+          column: New Issue Approval
+          repo-token: ${{ secrets.HFLA_COPIED_PB_FOR_TESTING_TOKEN }}
