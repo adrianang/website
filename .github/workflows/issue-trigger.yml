@@ -70,3 +70,15 @@ jobs:
             const script = require('./github-actions/trigger-issue/add-preliminary-comment/preliminary-update-comment.js')
             script({g: github, c:context},results)
 
+  Add-Issue-to-Project-Board:
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'issues' && github.event.action == 'opened' }}
+    steps:
+      - name: Add issue to project board
+        uses: alex-page/github-project-automation-plus@v0.8.3
+        id: add-issue-project-board
+        with:
+          script: |
+            project: Project Board
+            column: New Issue Approval
+            repo-token: ${{ secrets.HFLA_COPIED_PB_FOR_TESTING_TOKEN }}
